@@ -296,7 +296,8 @@ for idx,(cnt,box) in enumerate(keepers):
 				new_image[y][x] = bg
 			else:
 				new_image[y][x] = fg
-
+# blur a bit to improve ocr accurrecy
+new_image = cv2.blur(new_image,(2,2))
 cv2.imwrite(output_file, new_image)
 if(DEBUGGING):
 	cv2.imwrite('edges.png',edges)
