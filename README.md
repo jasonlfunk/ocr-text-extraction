@@ -1,6 +1,8 @@
 ocr-text-extraction
 ===================
 
+I am not actively supporting this script. It was just an experiment.
+
 Processes an image to extract the text portions. Primarily
 used for pre-processing for performing OCR.
 
