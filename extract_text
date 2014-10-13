@@ -109,7 +109,7 @@ def count_siblings(index, h_, contour, inc_children=False):
     else:
         count = 0
 
-    # Look behind
+    # Look ahead
     p_ = h_[index][0]
     while p_ > 0:
         if keep(c(p_)):
@@ -118,13 +118,13 @@ def count_siblings(index, h_, contour, inc_children=False):
             count += count_children(p_, h_, contour)
         p_ = h_[p_][0]
 
-    # Look ahead
+    # Look behind
     n = h_[index][1]
     while n > 0:
         if keep(c(n)):
             count += 1
         if inc_children:
-            count += count_children(p_, h_, contour)
+            count += count_children(n, h_, contour)
         n = h_[n][1]
     return count
 
