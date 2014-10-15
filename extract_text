@@ -150,17 +150,11 @@ def keep_box(contour):
             print "\t Rejected because of shape: (" + str(xx) + "," + str(yy) + "," + str(w_) + "," + str(h_) + ")" + \
                   str(w_ / h_)
         return False
-
-    # Test whether the box is too wide
-    if w_ > img_x / 5:
+    
+    # check size of the box
+    if ((w_ * h_) > ((img_x * img_y) / 5)) or ((w_ * h_) < 15):
         if DEBUG:
-            print "\t Rejected because of width: " + str(w_)
-        return False
-
-    # Test whether the box is too tall
-    if h_ > img_y / 5:
-        if DEBUG:
-            print "\t Rejected because of height: " + str(h_)
+            print "\t Rejected because of size"
         return False
 
     return True
